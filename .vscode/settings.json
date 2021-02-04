@@ -1,0 +1,6 @@
+{
+    "prettier.packageManager": "yarn",
+    "editor.formatOnSave": true,
+    "prettier.semi": false,
+    "typescript.preferences.quoteStyle": "double"
+}
