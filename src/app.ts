@@ -1,4 +1,4 @@
-import express from 'src/routes/items/node_modules/express'
+import express from 'express'
 import config from 'config'
 import bodyParser from 'body-parser'
 import cors from 'cors'

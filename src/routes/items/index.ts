@@ -6,10 +6,13 @@ const itemsRouter = express.Router()
 /**
  * Get all products
  */
-itemsRouter.get('/', async (req, res, next) => {
+
+itemsRouter.get('', async (req, res, next) => {
+  const searchString = String(req.query.q)
+
   try {
-    const products = await ItemService.findAll()
-    res.send({ products })
+    const items = await ItemService.search(searchString)
+    res.send(items)
   } catch (error) {
     next(error)
   }
@@ -20,53 +23,10 @@ itemsRouter.get('/', async (req, res, next) => {
  * @param {string} req.params.id
  */
 itemsRouter.get('/:id', async (req, res, next) => {
-  const productId = parseInt(req.params.id)
+  const itemId = String(req.params.id)
   try {
-    const product = await ItemService.findById(productId)
-    res.send({ product })
-  } catch (error) {
-    next(error)
-  }
-})
-
-/**
- * Create product
- * @param {string} req.params.id
- */
-itemsRouter.post('/', async (req, res, next) => {
-  const productPayload = req.body.product
-
-  try {
-    const product = await ItemService.create(productPayload)
-    res.send({ product })
-  } catch (error) {
-    next(error)
-  }
-})
-/**
- * Update existing product
- * @param {string} req.params.id
- */
-itemsRouter.put('/:id', async (req, res, next) => {
-  const productId = parseInt(req.params.id)
-  const productPayload = req.body.product
-  try {
-    const product = await ItemService.updateById(productId, productPayload)
-    res.send({ product })
-  } catch (error) {
-    next(error)
-  }
-})
-
-/**
- * Delete existing product
- * @param {string} req.params.id
- */
-itemsRouter.delete('/:id', async (req, res, next) => {
-  const productId = parseInt(req.params.id)
-  try {
-    await ItemService.deleteById(productId)
-    res.sendStatus(200)
+    const item = await ItemService.findById(itemId)
+    res.send(item)
   } catch (error) {
     next(error)
   }

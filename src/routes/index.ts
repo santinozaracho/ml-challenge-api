@@ -1,4 +1,5 @@
-import express from 'src/routes/items/node_modules/express'
+import express from 'express'
+import { ItemService } from 'src/features/item'
 
 import { itemsRouter } from './items'
 
