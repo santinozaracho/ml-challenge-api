@@ -1,5 +1,5 @@
 const ERRORS = {
-  OBJECTION_UNIQUE_ERROR_NAME: 'UniqueViolationError',
+  GENERIC: 'Generic Error',
 }
 
 export { ERRORS }
