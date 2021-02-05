@@ -1,6 +1,7 @@
 # ML Challenge API
 
-#RUN 
-yarn install 
+## Development
 
-yarn nodemon
+- `yarn`
+- `yarn start`
+- API running on defined `PORT` in `.env` or port 8000.
